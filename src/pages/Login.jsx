@@ -69,6 +69,8 @@ const Login = () => {
     }
   };
 
+
+
   // 🔹 Handle Google Sign-in
   const handleGoogleSignIn = async () => {
     setError("");
@@ -127,6 +129,22 @@ const Login = () => {
               )}
             </span>
           </div>
+   
+   
+    {/* f pass */}
+
+<p className="mt-2 text-sm text-gray-400">
+  Forgot your password?{" "}
+  <span
+    onClick={() => navigate("/forget-password", { state: { email } })}
+    className="text-pink-500 cursor-pointer hover:underline"
+  >
+    Reset here
+  </span>
+</p>
+
+
+
 
           {/* Login button */}
           <button
