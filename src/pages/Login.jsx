@@ -1,6 +1,6 @@
 // src/pages/Login.jsx
 import React, { useState } from "react";
-import { useNavigate, Link } from "react-router";
+import { useNavigate, useLocation, Link } from "react-router";
 import { useAuth } from "../context/AuthContext";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 import gamesdata from "../data/gamesdata";
@@ -8,6 +8,10 @@ import gamesdata from "../data/gamesdata";
 const Login = () => {
   const { login, googleSignIn } = useAuth();
   const navigate = useNavigate();
+  const location = useLocation();
+
+  
+  const from = location.state?.from?.pathname;
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -15,6 +19,32 @@ const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [loading, setLoading] = useState(false);
 
+  // 🔹 Common redirect logic
+  const redirectAfterLogin = () => {
+   
+    if (from) {
+      navigate(from, { replace: true });
+      return;
+    }
+
+    // Then check if we manually stored a redirect (fallback)
+    const redirectTo = sessionStorage.getItem("redirectAfterLogin");
+    sessionStorage.removeItem("redirectAfterLogin");
+
+    if (redirectTo) {
+      navigate(redirectTo);
+    } else {
+      // Default redirect — to first game or home
+      const defaultGame = gamesdata[0];
+      if (defaultGame) {
+        navigate(`/games/${defaultGame.id}`);
+      } else {
+        navigate("/");
+      }
+    }
+  };
+
+  // 🔹 Handle Email/Password login
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError("");
@@ -22,18 +52,9 @@ const Login = () => {
 
     try {
       await login(email.trim(), password);
-
-      // Redirect to the first game in your data as default
-      const defaultGame = gamesdata[0];
-      if (defaultGame) {
-        navigate(`/games/${defaultGame.id}`);
-      } else {
-        navigate("/"); // fallback to home if no game exists
-      }
+      redirectAfterLogin();
     } catch (err) {
-      console.log("Firebase login error code:", err.code);
-      console.log("Firebase login error message:", err.message);
-
+      console.log("Firebase login error:", err);
       if (err.code === "auth/user-not-found") {
         setError("No user found with this email.");
       } else if (err.code === "auth/wrong-password") {
@@ -48,19 +69,14 @@ const Login = () => {
     }
   };
 
+  // 🔹 Handle Google Sign-in
   const handleGoogleSignIn = async () => {
     setError("");
     setLoading(true);
 
     try {
       await googleSignIn();
-
-      const defaultGame = gamesdata[0];
-      if (defaultGame) {
-        navigate(`/games/${defaultGame.id}`);
-      } else {
-        navigate("/");
-      }
+      redirectAfterLogin();
     } catch (err) {
       console.log("Google login error:", err);
       setError("Google login failed. Please try again.");
@@ -104,7 +120,11 @@ const Login = () => {
               className="absolute right-3 top-3 cursor-pointer text-gray-400"
               onClick={() => setShowPassword(!showPassword)}
             >
-              {showPassword ? <AiOutlineEyeInvisible size={20} /> : <AiOutlineEye size={20} />}
+              {showPassword ? (
+                <AiOutlineEyeInvisible size={20} />
+              ) : (
+                <AiOutlineEye size={20} />
+              )}
             </span>
           </div>
 

@@ -5,8 +5,7 @@ import Login from "../pages/Login";
 import Register from "../pages/Register"; 
 import Profile from "../pages/Profile";
 import GameDetails from "../pages/GameDetails";
-import ProtectedRoute from "../components/protectedRoute";
-
+import PrivateRoute from "../components/PrivateRoute"
 
 const router = createBrowserRouter([
   {
@@ -27,14 +26,18 @@ const router = createBrowserRouter([
       },
       {
         path: "profile",
-        element: <Profile />,
+        element: (
+          <PrivateRoute>
+            <Profile />
+          </PrivateRoute>
+        ),
       },
       {
         path: "games/:id",
         element: (
-          <ProtectedRoute>
+          <PrivateRoute>
             <GameDetails />
-          </ProtectedRoute>
+          </PrivateRoute>
         ),
       },
     ],

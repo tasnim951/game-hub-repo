@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import { getAuth, onAuthStateChanged, signOut } from "firebase/auth";
 import { Link, useNavigate } from "react-router";
 import logo from "../assets/logo.png"
+import defaultAvatar from "../assets/avatar.png";
+
 const Navbar = () => {
   const [user, setUser] = useState(null);
   const auth = getAuth();
@@ -59,10 +61,10 @@ const Navbar = () => {
         ) : (
           <>
             <img
-              src={user.photoURL || "https://via.placeholder.com/40"}
+              src={user.photoURL || defaultAvatar}
               alt="Profile"
               className="w-10 h-10 rounded-full cursor-pointer"
-              onClick={() => navigate("/my-profile")}
+              onClick={() => navigate("/profile")}
               title="My Profile"
             />
             <button
