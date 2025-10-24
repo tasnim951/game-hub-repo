@@ -1,5 +1,5 @@
 import React from "react";
-import gamesdata from "../data/gamesdata" // Your JS file exporting an array
+import gamesdata from "../data/gamesdata" 
 
 const Home = () => {
   // Sort games by rating descending for Popular Games

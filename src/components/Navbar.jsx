@@ -8,7 +8,7 @@ const Navbar = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    // Listen for auth state changes
+    
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
     });
@@ -19,7 +19,7 @@ const Navbar = () => {
     signOut(auth)
       .then(() => {
         setUser(null);
-        navigate("/login"); // redirect after logout
+        navigate("/login"); 
       })
       .catch((error) => {
         console.error("Logout error:", error);
@@ -31,7 +31,7 @@ const Navbar = () => {
       <Link to="/" className="flex items-center space-x-2">
         <img
           src= {logo}
-          // example game controller icon
+        
           alt="GameHub Logo"
           className="w-10 h-10"
         />
