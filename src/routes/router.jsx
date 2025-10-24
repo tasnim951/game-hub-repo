@@ -7,6 +7,7 @@ import Profile from "../pages/Profile";
 import GameDetails from "../pages/GameDetails";
 import PrivateRoute from "../components/PrivateRoute"
 import ForgetPassword from "../components/ForgetPassword";
+import NotFound from "../pages/NotFound";
 
 const router = createBrowserRouter([
   {
@@ -29,6 +30,11 @@ const router = createBrowserRouter([
         { path: "forget-password", 
             element: <ForgetPassword /> },
 
+        {
+  path: "*",
+  element: <NotFound />
+}
+,
 
 
       {
