@@ -8,6 +8,7 @@ import GameDetails from "../pages/GameDetails";
 import PrivateRoute from "../components/PrivateRoute"
 import ForgetPassword from "../components/ForgetPassword";
 import NotFound from "../pages/NotFound";
+import GameShowcase from "../components/GameShowcase";
 
 const router = createBrowserRouter([
   {
@@ -29,6 +30,9 @@ const router = createBrowserRouter([
  
         { path: "forget-password", 
             element: <ForgetPassword /> },
+
+        { path: "showcase", 
+            element: <GameShowcase /> },
 
         {
   path: "*",

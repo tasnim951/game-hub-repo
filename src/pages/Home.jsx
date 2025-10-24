@@ -1,7 +1,10 @@
 import React from "react";
-import gamesdata from "../data/gamesdata" 
+import gamesdata from "../data/gamesdata";
+import { useNavigate } from "react-router";
 
 const Home = () => {
+  const navigate = useNavigate(); // ✅ Added navigate
+
   // Sort games by rating descending for Popular Games
   const popularGames = [...gamesdata].sort((a, b) => b.ratings - a.ratings).slice(0, 3);
 
@@ -18,8 +21,11 @@ const Home = () => {
             <p className="mb-6 text-lg text-gray-300">
               Your ultimate destination for all things gaming. Discover, play, and share your favorite games!
             </p>
-            <button className="btn bg-pink-600 hover:bg-pink-700 border-none text-white btn-lg">
-              Explore Games
+            <button
+              onClick={() => navigate("/showcase")} // ✅ Using navigate
+              className="bg-pink-600 hover:bg-pink-700 text-white py-2 px-6 rounded"
+            >
+              Game Showcase
             </button>
           </div>
           <div className="flex-1">
@@ -68,7 +74,7 @@ const Home = () => {
               <div
                 key={game.id}
                 className="card bg-gray-900 text-white shadow-lg border border-gray-700 hover:scale-105 transition-transform duration-300 cursor-pointer"
-                onClick={() => window.location.href = `/games/${game.id}`}
+                onClick={() => navigate(`/games/${game.id}`)} // ✅ Updated to use navigate
               >
                 <figure>
                   <img
@@ -85,7 +91,13 @@ const Home = () => {
                     <span className="text-gray-400 text-sm">by {game.developer}</span>
                   </div>
                   <div className="card-actions justify-end mt-2">
-                    <button className="btn btn-sm bg-pink-600 hover:bg-pink-700 border-none text-white">
+                    <button
+                      onClick={(e) => {
+                        e.stopPropagation(); // Prevent parent onClick
+                        navigate(`/games/${game.id}`);
+                      }}
+                      className="btn btn-sm bg-pink-600 hover:bg-pink-700 border-none text-white"
+                    >
                       View Details
                     </button>
                   </div>
