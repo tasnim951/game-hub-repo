@@ -1,44 +1,83 @@
 import React from "react";
 import gamesdata from "../data/gamesdata";
 import { useNavigate } from "react-router";
+import { motion } from "framer-motion";
 
 const Home = () => {
-  const navigate = useNavigate(); // ✅ Added navigate
+  const navigate = useNavigate();
 
   // Sort games by rating descending for Popular Games
   const popularGames = [...gamesdata].sort((a, b) => b.ratings - a.ratings).slice(0, 3);
+
+  // Animation variants
+  const fadeInUp = {
+    hidden: { opacity: 0, y: 30 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
+  };
+
+  const fadeIn = {
+    hidden: { opacity: 0 },
+    visible: { opacity: 1, transition: { duration: 0.8 } },
+  };
 
   return (
     <div className="min-h-screen bg-black text-white">
       <div className="container mx-auto px-4 py-10">
 
         {/* Hero Section */}
-        <section className="hero bg-gray-900 rounded-lg p-8 mb-12 shadow-xl flex flex-col lg:flex-row items-center gap-8">
+        <motion.section
+          className="hero bg-gray-900 rounded-lg p-8 mb-12 shadow-xl flex flex-col lg:flex-row items-center gap-8"
+          initial="hidden"
+          animate="visible"
+          variants={fadeInUp}
+        >
           <div className="flex-1 text-center lg:text-left">
-            <h1 className="text-5xl font-bold mb-4 text-pink-500">
+            <motion.h1
+              className="text-5xl font-bold mb-4 text-pink-500"
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.6 }}
+            >
               Welcome to GameHub
-            </h1>
-            <p className="mb-6 text-lg text-gray-300">
+            </motion.h1>
+            <motion.p
+              className="mb-6 text-lg text-gray-300"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.3, duration: 0.6 }}
+            >
               Your ultimate destination for all things gaming. Discover, play, and share your favorite games!
-            </p>
-            <button
-              onClick={() => navigate("/showcase")} // ✅ Using navigate
+            </motion.p>
+            <motion.button
+              onClick={() => navigate("/showcase")}
               className="bg-pink-600 hover:bg-pink-700 text-white py-2 px-6 rounded"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
             >
               Game Showcase
-            </button>
+            </motion.button>
           </div>
-          <div className="flex-1">
+          <motion.div
+            className="flex-1"
+            initial={{ opacity: 0, x: 50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8 }}
+          >
             <img
               src="https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&w=800&q=80"
               alt="Gaming"
               className="rounded-lg shadow-lg"
             />
-          </div>
-        </section>
+          </motion.div>
+        </motion.section>
 
         {/* Banner Slider */}
-        <section className="w-full mt-10 mb-12 rounded-lg overflow-hidden">
+        <motion.section
+          className="w-full mt-10 mb-12 rounded-lg overflow-hidden"
+          initial="hidden"
+          animate="visible"
+          variants={fadeIn}
+        >
           <div className="carousel w-full h-80">
             {[
               "https://images.unsplash.com/photo-1723360480597-d21deccaf3d0?auto=format&fit=crop&w=1332&q=80",
@@ -62,53 +101,65 @@ const Home = () => {
               </div>
             ))}
           </div>
-        </section>
+        </motion.section>
 
         {/* Popular Games Section */}
         <section className="mt-16">
-          <h2 className="text-3xl font-semibold mb-6 text-center text-pink-500">
+          <motion.h2
+            className="text-3xl font-semibold mb-6 text-center text-pink-500"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.8 }}
+          >
             Popular Games
-          </h2>
+          </motion.h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
-            {popularGames.map((game) => (
-              <div
+            {popularGames.map((game, idx) => (
+              <motion.div
                 key={game.id}
                 className="card bg-gray-900 text-white shadow-lg border border-gray-700 hover:scale-105 transition-transform duration-300 cursor-pointer"
-                onClick={() => navigate(`/games/${game.id}`)} // ✅ Updated to use navigate
+                onClick={() => navigate(`/games/${game.id}`)}
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: idx * 0.2, duration: 0.5 }}
               >
                 <figure>
                   <img
                     src={game.coverPhoto}
                     alt={game.title}
-                    className="rounded-t-lg object-cover h-48 w-full"
+                    className="rounded-t-lg object-cover  h-48 w-full"
                   />
                 </figure>
                 <div className="card-body">
-                  <h3 className="card-title text-pink-400">{game.title}</h3>
+                  <h3 className="card-title text-2xl font-bold  text-pink-500">{game.title}</h3>
                   <p className="text-gray-400">{game.category}</p>
-                  <div className="flex items-center mt-2">
-                    <span className="text-yellow-400 mr-2">⭐ {game.ratings}</span>
+                  <div className="flex  flex-col items-start mt-2">
+                    <span className="text-yellow-400 text-xl font-semibold mr-2">Rating- {game.ratings}</span>
                     <span className="text-gray-400 text-sm">by {game.developer}</span>
                   </div>
                   <div className="card-actions justify-end mt-2">
-                    <button
-                      onClick={(e) => {
-                        e.stopPropagation(); // Prevent parent onClick
-                        navigate(`/games/${game.id}`);
-                      }}
+                    <motion.button
+                      onClick={(e) => { e.stopPropagation(); navigate(`/games/${game.id}`); }}
                       className="btn btn-sm bg-pink-600 hover:bg-pink-700 border-none text-white"
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
                     >
                       View Details
-                    </button>
+                    </motion.button>
                   </div>
                 </div>
-              </div>
+              </motion.div>
             ))}
           </div>
         </section>
 
         {/* Community Section */}
-        <section className="bg-gray-900 mt-16 py-10 rounded-lg text-center shadow-lg">
+        <motion.section
+          className="bg-gray-900 mt-16 py-10 rounded-lg text-center shadow-lg"
+          initial="hidden"
+          animate="visible"
+          variants={fadeInUp}
+        >
           <h2 className="text-3xl font-semibold mb-4 text-pink-500">
             Join Our Community
           </h2>
@@ -121,11 +172,15 @@ const Home = () => {
               placeholder="Enter your email"
               className="input input-bordered w-full sm:flex-1 bg-black text-white border-gray-600"
             />
-            <button className="btn bg-pink-600 hover:bg-pink-700 border-none text-white">
+            <motion.button
+              className="btn bg-pink-600 hover:bg-pink-700 border-none text-white"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
               Join Now
-            </button>
+            </motion.button>
           </div>
-        </section>
+        </motion.section>
 
       </div>
     </div>

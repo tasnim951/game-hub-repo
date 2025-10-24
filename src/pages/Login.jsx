@@ -137,7 +137,7 @@ const Login = () => {
   Forgot your password?{" "}
   <span
     onClick={() => navigate("/forget-password", { state: { email } })}
-    className="text-pink-500 cursor-pointer hover:underline"
+    className="text-pink-500 cursor-pointer  font-semibold hover:underline"
   >
     Reset here
   </span>
