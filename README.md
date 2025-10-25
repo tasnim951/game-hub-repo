@@ -4,7 +4,7 @@ GameHub is a modern gaming web application built with React and Firebase that al
 
 ## Live Demo
 
-  Live URL:
+  Live URL: (https://game-hub-app-2fd09.web.app)
 ## Project Purpose
 
 The purpose of this project is to build a React-based single-page gaming platform that demonstrates user authentication using Firebase, private routes, animations, and responsive design. It also showcases CRUD-like behavior (updating user info) and dynamic routing in React.
