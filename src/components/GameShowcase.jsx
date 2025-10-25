@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 
 const Showcase = () => {
   const features = [
+       //    features collcted from Chatgpt
     {
       title: "🎮 Latest Releases",
       description: "Discover the newest games released this month. Stay ahead in the gaming world!",
@@ -25,9 +26,11 @@ const Showcase = () => {
     },
   ];
 
-  return (
-    <div className="min-h-screen bg-black text-white px-4 py-12">
-      {/* Hero Section */}
+      return (
+   
+   <div className="min-h-screen bg-black text-white px-4 py-12">
+  
+     
       <section className="text-center mb-16">
         <motion.h1
           initial={{ opacity: 0, y: -30 }}
@@ -37,6 +40,7 @@ const Showcase = () => {
         >
           Explore the World of Games
         </motion.h1>
+       
         <motion.p
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -47,10 +51,11 @@ const Showcase = () => {
         </motion.p>
       </section>
 
-      {/* Features Section */}
+      
       <section className="grid gap-8 md:grid-cols-2">
         {features.map((feature, index) => (
-          <motion.div
+         
+         <motion.div
             key={index}
             whileHover={{ scale: 1.05, y: -5 }}
             initial={{ opacity: 0, x: -50 }}
@@ -64,13 +69,13 @@ const Showcase = () => {
         ))}
       </section>
 
-      {/* Call to Action */}
+      
       <section className="mt-16 text-center">
-        <motion.button
-          whileHover={{ scale: 1.1 }}
-          className="bg-pink-600 hover:bg-pink-700 text-white py-3 px-8 rounded-full text-lg font-semibold shadow-lg"
+              <motion.button
+             whileHover={{ scale: 1.1 }}
+          className="bg-pink-600 hover:bg-pink-700 text-white py-3 px-8   rounded-full text-lg font-semibold shadow-lg"
         >
-          Join the GameHub Community
+             Join the GameHub Community
         </motion.button>
       </section>
     </div>

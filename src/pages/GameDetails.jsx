@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useParams, useNavigate } from "react-router";
 import gamesdata from "../data/gamesdata";
 
@@ -8,11 +8,21 @@ const GameDetails = () => {
 
   const game = gamesdata.find((g) => g.id === id);
 
+  
+         useEffect(() => {
+    if (game) {
+      document.title = `GameHub | ${game.title};`
+    } else {
+      document.title = "GameHub | Game Not Found";
+    }
+  }, [game]);
+
   if (!game) {
-    return (
-      <div className="min-h-screen bg-black flex flex-col justify-center items-center text-white">
+          return (
+         <div className="min-h-screen bg-black flex flex-col justify-center items-center text-white">
         <h1 className="text-3xl font-bold mb-4">Game Not Found</h1>
-        <button
+        
+         <button
           onClick={() => navigate("/")}
           className="btn bg-pink-600 hover:bg-pink-700 border-none text-white"
         >
@@ -25,7 +35,7 @@ const GameDetails = () => {
   return (
     <div className="min-h-screen bg-black text-white py-16 px-6">
       <div className="max-w-6xl mx-auto bg-gray-900 rounded-lg shadow-xl overflow-hidden flex flex-col lg:flex-row">
-        {/* LEFT — Game Image */}
+      
         <div className="lg:w-1/2 w-full">
           <img
             src={game.coverPhoto}
@@ -34,8 +44,9 @@ const GameDetails = () => {
           />
         </div>
 
-        {/* RIGHT — Game Info */}
+        
         <div className="lg:w-1/2 w-full p-8 flex flex-col justify-center">
+         
           <h1 className="text-4xl font-extrabold text-pink-500 mb-4">
             {game.title}
           </h1>

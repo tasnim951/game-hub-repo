@@ -1,16 +1,80 @@
-# React + Vite
+## GameHub
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+GameHub is a modern gaming web application built with React and Firebase that allows users to explore, discover, and manage their gaming profiles. It features user authentication, game browsing, and a personalized profile section all with a sleek and responsive UI.
 
-Currently, two official plugins are available:
+## Live Demo
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+  Live URL:
+## Project Purpose
 
-## React Compiler
+The purpose of this project is to build a React-based single-page gaming platform that demonstrates user authentication using Firebase, private routes, animations, and responsive design. It also showcases CRUD-like behavior (updating user info) and dynamic routing in React.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Key Features
 
-## Expanding the ESLint configuration
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Authentication
+
+Register and login using Email & Password or Google Sign-In
+
+Password validation (uppercase, lowercase, min. 6 chars)
+
+Forget Password functionality (email reset link)
+
+## Profile System
+
+View your user details (name, email, avatar)
+
+Update profile information (name & photo URL)
+
+Logout securely
+
+## Routing
+
+Protected routes using a custom PrivateRoute component
+
+404 Not Found page for invalid routes
+
+Dynamic page titles using React Helmet
+
+## UI & Design
+
+Fully responsive design with Tailwind CSS
+
+Animated components using Framer Motion
+
+Custom showcase page with parallax & reveal animations
+
+## Game Features
+
+Popular games displayed from local data
+
+Game details page with dynamic routing
+
+Interactive “Game Showcase” section
+
+## NPM Packages Used
+
+react:Core React library
+react-router:Routing and navigation
+firebase:Authentication & backend services
+tailwindcss	Modern, responsive UI styling
+framer-motion:Animations and transitions
+	
+## Additional Features
+
+Smooth transitions between pages
+
+Session storage redirect handling
+
+Error handling on login/register/logout
+
+Clean, readable, and modular code
+
+## Developer :
+
+ Developed by [Tasnim Akther Tanha]
+
+ Contact: [tasnimakthertanha@gmail.com
+]
+
+

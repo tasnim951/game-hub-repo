@@ -11,6 +11,12 @@ const Profile = () => {
   const [name, setName] = useState(user?.displayName || "");
   const [photoURL, setPhotoURL] = useState(user?.photoURL || "");
 
+      useEffect(() => {
+        document.title = "GameHub | My Profile";
+      },    [Profile]
+    );
+
+
   useEffect(() => {
    
     if (!user) {
@@ -45,11 +51,13 @@ const Profile = () => {
         <h2 className="text-3xl font-bold text-pink-500 mb-4">
           You need to log in first!
         </h2>
+       
         <p className="text-gray-400 mb-6">
           Please log in to view your profile details.
         </p>
+        
         <button
-          onClick={() => navigate("/login")}
+      onClick={() => navigate("/login")}
           className="bg-pink-600 hover:bg-pink-700 text-white py-2 px-6 rounded"
         >
           Go to Login

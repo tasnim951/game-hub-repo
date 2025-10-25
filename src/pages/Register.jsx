@@ -8,20 +8,25 @@ const Register = () => {
   const navigate = useNavigate();
 
   const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [photoURL, setPhotoURL] = useState("");
-  const [password, setPassword] = useState("");
-  const [error, setError] = useState("");
+     const [email, setEmail] = useState("");
+     const [photoURL, setPhotoURL] = useState("");
+    const [password, setPassword] = useState("");
+    const [error, setError] = useState("");
+
+  useEffect (()=> {
+    document.title = 'GameHub | Register';
+  },   [register]
+)
 
   useEffect(() => {
-    // Clear inputs on component mount
+    
     setName("");
-    setEmail("");
+     setEmail("");
     setPassword("");
     setPhotoURL("");
   }, []);
 
-  // Password validation function
+  
   const validatePassword = (pwd) => {
     const hasUpperCase = /[A-Z]/.test(pwd);
     const hasLowerCase = /[a-z]/.test(pwd);
@@ -58,7 +63,8 @@ const Register = () => {
   };
 
   return (
-    <div className="min-h-screen flex justify-center items-center bg-black px-4 text-white">
+   
+   <div className="min-h-screen flex justify-center items-center bg-black px-4 text-white">
       <div className="bg-gray-900 p-8 rounded-lg shadow-lg w-full max-w-md">
         <h2 className="text-2xl font-bold text-pink-500 mb-4 text-center">
           Register
@@ -67,6 +73,7 @@ const Register = () => {
         {error && <p className="text-red-500 mb-4 text-center">{error}</p>}
 
         <form onSubmit={handleRegister} className="flex flex-col gap-4" autoComplete="off">
+         
           <input
             type="text"
             placeholder="Full Name"
@@ -77,7 +84,7 @@ const Register = () => {
             autoComplete="off"
           />
 
-          <input
+     <input
             type="email"
             placeholder="Email"
             value={email}
@@ -87,7 +94,7 @@ const Register = () => {
             autoComplete="off"
           />
 
-          <input
+       <input
             type="text"
             placeholder="Photo URL (optional)"
             value={photoURL}
@@ -96,7 +103,7 @@ const Register = () => {
             autoComplete="off"
           />
 
-          <input
+        <input
             type="password"
             placeholder="Password"
             value={password}
@@ -114,12 +121,12 @@ const Register = () => {
           </button>
         </form>
 
-        <button
+    <button
           onClick={handleGoogleLogin}
           className="bg-gray-700 hover:bg-gray-800 text-white py-3 rounded w-full mt-4"
         >
           Sign up with Google
-        </button>
+     </button>
 
         <p className="text-gray-400 mt-4 text-center">
           Already have an account?{" "}

@@ -1,4 +1,4 @@
-// src/pages/ForgetPassword.jsx
+
 import React, { useState, useEffect } from "react";
 import { sendPasswordResetEmail } from "firebase/auth";
 import { auth } from "../firebase.config";
@@ -10,14 +10,14 @@ const ForgetPassword = () => {
 
   const [email, setEmail] = useState("");
 
-  // Pre-fill email if coming from login page
-  useEffect(() => {
+ 
+       useEffect(() => {
     if (location.state?.email) {
       setEmail(location.state.email);
     }
   }, [location.state]);
 
-  const handleReset = async (e) => {
+      const handleReset = async (e) => {
     e.preventDefault();
     try {
       await sendPasswordResetEmail(auth, email);
@@ -34,14 +34,16 @@ const ForgetPassword = () => {
       <div className="bg-gray-900 p-8 rounded-lg shadow-lg w-full max-w-md text-center">
         <h2 className="text-2xl font-bold text-pink-500 mb-4">Reset Password</h2>
         <form onSubmit={handleReset} className="flex flex-col gap-4">
+        
           <input
-            type="email"
+         type="email"
             placeholder="Enter your email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             required
             className="p-2 rounded bg-gray-800 text-white"
           />
+        
           <button
             type="submit"
             className="bg-pink-600 hover:bg-pink-700 text-white py-2 px-4 rounded"
@@ -49,6 +51,7 @@ const ForgetPassword = () => {
             Reset Password
           </button>
         </form>
+       
         <button
           onClick={() => navigate("/login")}
           className="mt-4 text-gray-400 hover:text-white underline"
