@@ -9,6 +9,7 @@ import PrivateRoute from "../components/PrivateRoute"
 import ForgetPassword from "../components/ForgetPassword";
 import NotFound from "../pages/NotFound";
 import GameShowcase from "../components/GameShowcase";
+import AllItems from "../pages/AllItems";
 
 const router = createBrowserRouter([
   {
@@ -33,6 +34,9 @@ const router = createBrowserRouter([
 
         { path: "/showcase", 
             element: <GameShowcase /> },
+
+        { path: "/all-items", 
+            element: <AllItems /> },
 
         {
        path: "*",
