@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
-import gamesdata from "../data/gamesdata"; // Make sure path is correct
-import GameCard from "../components/GameCard"; // Your reusable card component
+import gamesdata from "../data/gamesdata"; 
+import GameCard from "../components/GameCard"; 
 import { motion } from "framer-motion";
 
 const AllItems = () => {

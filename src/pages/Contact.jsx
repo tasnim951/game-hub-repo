@@ -35,12 +35,12 @@ const Contact = () => {
 
   return (
     <div className="min-h-screen bg-black flex items-center justify-center px-4 relative">
-      {/* Decorative image on left */}
+     
       <div className="hidden md:block absolute left-10 top-1/2 transform -translate-y-1/2 w-40 h-40 bg-cover bg-center rounded-lg shadow-lg"
            style={{ backgroundImage: "url('https://images.unsplash.com/photo-1605902711622-cfb43c44367e?auto=format&fit=crop&w=800&q=80')" }}
       ></div>
 
-      {/* Centered form */}
+    
       <motion.div
         className="bg-gray-900 rounded-xl shadow-xl w-full max-w-lg p-10 z-10"
         initial={{ opacity: 0, y: 20 }}

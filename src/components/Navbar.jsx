@@ -29,16 +29,16 @@ const Navbar = () => {
 
   return (
    <nav className="bg-black sticky top-0 z-50 shadow-md">
-  {/* Navbar area with side margin */}
+  
   <div className="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center text-white">
 
-    {/* Logo */}
+   
     <Link to="/" className="flex items-center space-x-2">
       <img src={logo} alt="Logo" className="w-10 h-10" />
       <span className="text-3xl font-bold">GameHub</span>
     </Link>
 
-    {/* Desktop Menu */}
+    
     <div className="hidden md:flex space-x-6 items-center font-semibold">
       <Link to="/" className="hover:text-pink-300">Home</Link>
       <Link to="/all-items" className="hover:text-pink-300">All Items</Link>
@@ -70,7 +70,7 @@ const Navbar = () => {
       )}
     </div>
 
-    {/* Mobile Menu Button */}
+   
     <button
       className="md:hidden text-pink-400 text-3xl"
       onClick={() => setMenuOpen(!menuOpen)}
@@ -79,7 +79,7 @@ const Navbar = () => {
     </button>
   </div>
 
-  {/* Mobile Dropdown */}
+ 
   {menuOpen && (
     <div className="md:hidden bg-gray-900 text-white flex flex-col items-center py-4 space-y-4">
       <Link to="/" onClick={() => setMenuOpen(false)} className="hover:text-pink-300">Home</Link>

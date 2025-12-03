@@ -17,7 +17,7 @@ const GameCard = ({ game, index }) => {
         flex flex-col
       "
     >
-      {/* Image Section */}
+     
       <div className="h-48 w-full overflow-hidden">
         <img
           src={game.coverPhoto}
@@ -26,18 +26,18 @@ const GameCard = ({ game, index }) => {
         />
       </div>
 
-      {/* Content Area */}
+     
       <div className="flex flex-col flex-grow p-4">
         <h3 className="text-xl font-bold text-pink-500 mb-2">
           {game.title}
         </h3>
 
-        {/* Short Description */}
+       
         <p className="text-gray-300 text-sm line-clamp-3 mb-4">
           {game.shortDescription}
         </p>
 
-        {/* See More Button */}
+       
         <motion.button
           onClick={() => navigate(`/games/${game.id}`)}
           whileHover={{ scale: 1.05 }}

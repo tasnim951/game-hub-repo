@@ -34,7 +34,7 @@ const GameDetails = () => {
     <div className="min-h-screen bg-black text-white py-16 px-6">
       <div className="max-w-6xl mx-auto bg-gray-900 rounded-lg shadow-xl overflow-hidden flex flex-col lg:flex-row gap-8">
         
-        {/* Image */}
+       
         <div className="lg:w-1/2 w-full h-96 lg:h-auto">
           <img
             src={game.coverPhoto}
@@ -43,7 +43,7 @@ const GameDetails = () => {
           />
         </div>
 
-        {/* Game Info */}
+     
         <div className="lg:w-1/2 w-full flex flex-col justify-between p-6">
           <div>
             <h1 className="text-4xl font-extrabold text-pink-500 mb-4">{game.title}</h1>
@@ -72,7 +72,6 @@ const GameDetails = () => {
             </div>
           </div>
 
-          {/* Actions */}
           <div className="flex gap-4 flex-wrap mt-6">
             {game.downloadLink && (
               <a

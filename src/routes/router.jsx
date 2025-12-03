@@ -50,16 +50,11 @@ const router = createBrowserRouter([
         { path: "/support", 
             element: <Support /> },
 
-         
-      
-
         {
        path: "*",
         element: <NotFound />
-      }
-,
-
-
+      },
+      
       {
         path: "profile",
         element: (

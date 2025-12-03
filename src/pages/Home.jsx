@@ -130,14 +130,14 @@ const Home = () => {
           </div>
         </section>
 
-{/* Parallax Banner */}
+
 <motion.section
   className="mt-12 h-[70vh] rounded-xl relative overflow-hidden"
   initial={{ opacity: 0 }}
   whileInView={{ opacity: 1 }}
   transition={{ duration: 1 }}
 >
-  {/* Background */}
+ 
   <motion.img
     src="https://images.unsplash.com/photo-1493711662062-fa541adb3fc8?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
     className="absolute w-full h-full object-cover opacity-40"
@@ -146,7 +146,6 @@ const Home = () => {
     transition={{ duration: 1.5 }}
   />
 
-  {/* Text */}
   <div className="absolute inset-0 flex items-center justify-center">
     <motion.h2
       initial={{ y: 40, opacity: 0 }}
@@ -159,7 +158,7 @@ const Home = () => {
   </div>
 </motion.section>
 
-{/* Reviews Carousel */}
+{/* Reviews */}
 <motion.section
   className="mt-20 bg-gray-900 p-10 rounded-lg shadow-lg"
   initial={{ opacity: 0 }}
@@ -232,7 +231,7 @@ const Home = () => {
   viewport={{ once: true }}
   transition={{ duration: 0.8 }}
 >
-  {/* Image on left */}
+  
   <motion.div
     className="flex-1"
     initial={{ x: -50, opacity: 0 }}
@@ -247,7 +246,7 @@ const Home = () => {
     />
   </motion.div>
 
-  {/* Text on right */}
+ 
   <motion.div
     className="flex-1 text-center lg:text-left"
     initial={{ x: 50, opacity: 0 }}
@@ -278,7 +277,7 @@ const Home = () => {
   viewport={{ once: true }}
   transition={{ duration: 0.8 }}
 >
-  {/* Background Image */}
+  
   <div className="absolute top-0 left-0 w-full h-full">
     <img
       src="https://img.freepik.com/premium-photo/pink-black-abstract-arrows-black-background_615096-12475.jpg?semt=ais_hybrid&w=740&q=80"
@@ -287,7 +286,7 @@ const Home = () => {
     />
   </div>
 
-  {/* Centered Text Content */}
+ 
   <motion.div
     className="relative text-center max-w-3xl flex flex-col gap-6 px-4"
     initial={{ y: 50, opacity: 0 }}

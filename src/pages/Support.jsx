@@ -7,6 +7,8 @@ const Support = () => {
   }, []);
 
   const supportOptions = [
+
+        // collected from AI
     {
       title: "FAQ",
       description: "Find answers to the most common questions about GameHub.",
@@ -38,7 +40,7 @@ const Support = () => {
         </p>
       </motion.div>
 
-      {/* Support Options */}
+    
       <motion.div
         className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-5xl mx-auto"
         initial={{ opacity: 0 }}
@@ -58,7 +60,7 @@ const Support = () => {
         ))}
       </motion.div>
 
-      {/* Optional Support Form */}
+     
       <motion.div
         className="max-w-3xl mx-auto mt-16 bg-gray-900 rounded-xl p-8 shadow-lg"
         initial={{ opacity: 0, y: 20 }}
