@@ -33,7 +33,7 @@ const Support = () => {
         transition={{ duration: 0.8 }}
       >
         <h1 className="text-4xl font-bold text-pink-500 mb-4">Support Center</h1>
-        <p className="text-gray-300 text-lg">
+        <p className="text-gray-400 text-lg">
           Need help? Find answers, connect with our support team, or get assistance from the community.
         </p>
       </motion.div>
@@ -72,17 +72,17 @@ const Support = () => {
           <input
             type="text"
             placeholder="Your Name"
-            className="bg-black border border-gray-700 rounded-lg p-3 text-white focus:outline-none focus:border-pink-500 transition"
+            className="bg-gray-800  border-gray-800 rounded-lg p-3 text-white focus:outline-none focus:border-pink-500 transition"
           />
           <input
             type="email"
             placeholder="Your Email"
-            className="bg-black border border-gray-700 rounded-lg p-3 text-white focus:outline-none focus:border-pink-500 transition"
+            className="bg-gray-800  border-gray-800 rounded-lg p-3 text-white focus:outline-none focus:border-pink-500 transition"
           />
           <textarea
             placeholder="Describe your issue"
             rows={5}
-            className="bg-black border border-gray-700 rounded-lg p-3 text-white focus:outline-none focus:border-pink-500 transition resize-none"
+            className="bg-gray-800  border-gray-800 rounded-lg p-3 text-white focus:outline-none focus:border-pink-500 transition resize-none"
           />
           <motion.button
             type="submit"

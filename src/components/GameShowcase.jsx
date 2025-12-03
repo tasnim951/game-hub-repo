@@ -70,14 +70,7 @@ const Showcase = () => {
       </section>
 
       
-      <section className="mt-16 text-center">
-              <motion.button
-             whileHover={{ scale: 1.1 }}
-          className="bg-pink-600 hover:bg-pink-700 text-white py-3 px-8   rounded-full text-lg font-semibold shadow-lg"
-        >
-             Join the GameHub Community
-        </motion.button>
-      </section>
+     
     </div>
   );
 };

@@ -123,7 +123,7 @@ const Register = () => {
 
     <button
           onClick={handleGoogleLogin}
-          className="bg-gray-700 hover:bg-gray-800 text-white py-3 rounded w-full mt-4"
+          className="bg-blue-600 hover:bg-blue-700 text-white py-3 rounded w-full mt-4"
         >
           Sign up with Google
      </button>

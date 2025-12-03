@@ -50,7 +50,7 @@ const Contact = () => {
         <h2 className="text-4xl font-bold text-pink-500 mb-4 text-center">
           Contact Us
         </h2>
-        <p className="text-gray-300 mb-6 text-center">
+        <p className="text-gray-400 mb-6 text-center">
           Have questions or suggestions? Fill out the form below and we’ll get back to you shortly.
         </p>
 
@@ -61,7 +61,7 @@ const Contact = () => {
             value={formData.name}
             onChange={handleChange}
             placeholder="Your Name"
-            className="bg-black border border-gray-700 rounded-lg p-3 text-white focus:outline-none focus:border-pink-500 transition"
+            className="bg-gray-800  border-gray-800 rounded-lg p-3 text-white focus:outline-none focus:border-pink-500 transition"
           />
           <input
             type="email"
@@ -69,7 +69,7 @@ const Contact = () => {
             value={formData.email}
             onChange={handleChange}
             placeholder="Your Email"
-            className="bg-black border border-gray-700 rounded-lg p-3 text-white focus:outline-none focus:border-pink-500 transition"
+            className="bg-gray-800   border-gray-700 rounded-lg p-3 text-white focus:outline-none focus:border-pink-500 transition"
           />
           <textarea
             name="message"
@@ -77,7 +77,7 @@ const Contact = () => {
             onChange={handleChange}
             rows={5}
             placeholder="Your Message"
-            className="bg-black border border-gray-700 rounded-lg p-3 text-white focus:outline-none focus:border-pink-500 transition resize-none"
+            className="bg-gray-800  border-gray-700 rounded-lg p-3 text-white focus:outline-none focus:border-pink-500 transition resize-none"
           />
           <motion.button
             type="submit"

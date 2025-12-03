@@ -1,6 +1,22 @@
+import logo from "../assets/logo.png";
+
 const Footer = () => {
   return (
     <footer className="footer sm:footer-horizontal bg-black text-xl text-white font-semibold hover:text-pink-300 p-10 border-2 ">
+  
+   <div className="flex flex-col gap-2 mb-6">
+        <div className="flex items-center gap-3">
+          <img 
+            src={logo} 
+            alt="GameHub Logo" 
+            className="w-10 h-10 object-contain"
+          />
+          <h2 className="text-2xl font-bold text-white">GameHub</h2>
+        </div>
+        <p className="text-sm text-gray-400 font-normal">
+          Your gateway to the world of gaming.
+        </p>
+      </div>
   <nav>
     <h6 className="footer-title">Services</h6>
     <a className="link link-hover">Branding</a>
