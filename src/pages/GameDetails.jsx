@@ -81,7 +81,7 @@ const GameDetails = () => {
                 rel="noopener noreferrer"
                 className="btn bg-pink-600 hover:bg-pink-700 border-none text-white text-lg px-6"
               >
-                Play / Download
+               Download
               </a>
             )}
             <button

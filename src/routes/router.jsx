@@ -10,6 +10,9 @@ import ForgetPassword from "../components/ForgetPassword";
 import NotFound from "../pages/NotFound";
 import GameShowcase from "../components/GameShowcase";
 import AllItems from "../pages/AllItems";
+import Contact from "../pages/Contact";
+import About from "../pages/About";
+import Support from "../pages/Support";
 
 const router = createBrowserRouter([
   {
@@ -37,6 +40,18 @@ const router = createBrowserRouter([
 
         { path: "/all-items", 
             element: <AllItems /> },
+
+        { path: "/contact", 
+            element: <Contact /> },
+
+        { path: "/about", 
+            element: <About /> },
+
+        { path: "/support", 
+            element: <Support /> },
+
+         
+      
 
         {
        path: "*",

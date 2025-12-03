@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 
 const Showcase = () => {
   const features = [
-       //    features collcted from Chatgpt
+       
     {
       title: "🎮 Latest Releases",
       description: "Discover the newest games released this month. Stay ahead in the gaming world!",
